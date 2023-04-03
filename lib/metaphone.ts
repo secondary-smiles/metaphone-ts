@@ -1,4 +1,5 @@
 import { PLexer } from "./metaphone_trans.ts";
+import { cons } from "./metaphone.types.ts";
 
 function metaphone(word: string) {
   word = word.toLowerCase();
@@ -8,7 +9,7 @@ function metaphone(word: string) {
   word = dropMB(word);
 
   const lexer = new PLexer();
-  const  phonemes = [];
+  let phonemes = [];
   for (let i = 0; i < word.length; i++) {
     const char = word[i];
     const phoneme = lexer.eat(char, word, i);
@@ -16,6 +17,10 @@ function metaphone(word: string) {
     word = phoneme.word;
     phonemes.push(...phoneme.cons);
   }
+
+  phonemes = phonemes.filter((a, _) => {
+    return a != cons.UNK && a != cons.NIL;
+  });
 
   return phonemes;
 }

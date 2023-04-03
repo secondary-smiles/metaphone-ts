@@ -44,7 +44,17 @@ class PLexer {
       case "y":
         return this.y(word, index);
       case "z":
-        return new PhonemePair(word, [cons.S])
+        return new PhonemePair(word, [cons.S]);
+      case "a":
+      case "e":
+      case "i":
+      case "o":
+      case "u": {
+        if (index == 0) {
+          return new PhonemePair(word, [char.toUpperCase()]);
+        }
+        return new PhonemePair(word, [cons.UNK]);
+      }
 
       default:
         return new PhonemePair(word, [cons.UNK]);
@@ -269,7 +279,7 @@ class PLexer {
   y(word: string, index: number) {
     const phoneme = new PhonemePair(word);
 
-    if (word[index+1] && !isVowel(word[index+1])) {
+    if (word[index + 1] && !isVowel(word[index + 1])) {
       phoneme.cons = [cons.NIL];
       return phoneme;
     }
