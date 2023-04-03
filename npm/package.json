@@ -1,0 +1,36 @@
+{
+  "module": "./esm/mod.js",
+  "main": "./script/mod.js",
+  "types": "./types/mod.d.ts",
+  "name": "metaphone-ts",
+  "version": "1.0.1",
+  "description": "A fast implementation of the metaphone algorithm",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/secondary-smiles/metaphone-ts.git"
+  },
+  "bugs": {
+    "url": "https://github.com/secondary-smiles/metaphone-ts/issues"
+  },
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./types/mod.d.ts",
+        "default": "./esm/mod.js"
+      },
+      "require": {
+        "types": "./types/mod.d.ts",
+        "default": "./script/mod.js"
+      }
+    }
+  },
+  "scripts": {
+    "test": "node test_runner.js"
+  },
+  "devDependencies": {
+    "@deno/shim-deno": "~0.12.0",
+    "@types/node": "^18.11.9",
+    "chalk": "^4.1.2"
+  }
+}
