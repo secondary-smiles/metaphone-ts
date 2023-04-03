@@ -1,7 +1,8 @@
-import { metaphone } from "./lib/metaphone.ts";
+import { metaphone } from "./metaphone.ts";
 
 const words = ["write", "gnome", "xmonad", "cat", "green", "computer", "paper"];
 const combined = words.join(" ");
+const singleWord = "geometry"
 
 Deno.bench("Metaphone Single Word Batch Parsing", () => {
   words.forEach((word) => {
@@ -18,3 +19,7 @@ Deno.bench("Metaphone Random Single Word Parsing", () => {
 Deno.bench("Single Line Word Batch Parsing", () => {
   metaphone(combined);
 });
+
+Deno.bench("Single Word Parsing", () => {
+  metaphone(singleWord);
+})
