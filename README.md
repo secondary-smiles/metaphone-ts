@@ -1,7 +1,10 @@
 # Metaphone-ts
 
-> A fast implementation of Lawrence Philips Metaphone Algorithm with some additional tweaks
+<!--SHIELDS BEGIN-->
+[![Deno](https://github.com/secondary-smiles/metaphone-ts/actions/workflows/deno.yml/badge.svg)](https://github.com/secondary-smiles/metaphone-ts/actions/workflows/deno.yml)
+<!--SHIELDS END-->
 
+> A fast implementation of Lawrence Philips' Metaphone Algorithm with some additional tweaks
 
 ## What is the Metaphone Algorithm?
 
@@ -10,6 +13,7 @@ into the individual sounds that make up their pronunciation.
 
 This implementation of the algorithm is quite fast, taking approx. `380 nanoseconds` per word
 according to `deno bench`
+> Tested on a 2020 M1 MacBook Pro, 16gb 
 
 ## Use Cases
 
@@ -63,6 +67,8 @@ import {metaphone} from 'https://deno.land/x/metaphone-ts/mod.ts'
 
 ## Example
 
+### As a dependency
+
 ```ts
 import { metaphone } from 'metaphone-ts'
 
@@ -70,6 +76,46 @@ let sounds = metaphone("charlatan")
 
 console.log(sounds) // Prints `[ "X", "R", "L", "T", "N" ]`
 ```
+### Converting an entire paragraph
+
+```text
+0   NN   LTS    FLKRT     IN 0   RNSKT       ALWY     AS I STPT    OT  OF 0   HFRKR     
+The neon lights flickered in the rain-soaked alleyway as I stepped out of the hovercar. 
+
+I PLT    MY HT   UP T  SLT    MSLF   FRM  0   TNPR     ANT SKNT    0   AR   FR  ANY SN   OF TRBL     
+I pulled my hood up to shield myself from the downpour and scanned the area for any sign of trouble. 
+
+0S   WS  0   KNT  OF PLS   WR    TNJR   LRKT   ARNT   EFRY  KRNR     
+This was the kind of place where danger lurked around every corner 
+
+ANT Y   HT  T  B  ON YR   KRT   AT AL  TMS  
+and you had to be on your guard at all times. 
+
+I MT   MY WY  TWRTS   0   TR   OF 0   RNTN    BLTNK     
+I made my way towards the door of the rundown building, 
+
+FLNK    0   WT     OF 0   KN  IN MY PKT  
+feeling the weight of the gun in my pocket. 
+
+INST    0   AR  WS  0K    W0   SKRT      SMK   ANT 0   SNT   OF PLSNK   MSK    
+Inside, the air was thick with cigarette smoke and the sound of pulsing music. 
+
+I MT   MY WY  T  0   BK   OF 0   RM    WR    A STY     FKR    WTT    FR  M   
+I made my way to the back of the room, where a shadowy figure waited for me. 
+
+Y    HF   WT   I NT     H  ASKT   
+"You have what I need?" he asked, 
+
+HS  FS    BRLY   ATBL    OFR  0   BS    I NTT    ANT HNTT   HM  0   SML   TFS     
+his voice barely audible over the bass. I nodded and handed him the small device, 
+
+WNK      AS H  PLJT    IT INT  HS  KMPTR     AS 0   TT   STRMT    AKRS   0   SKRN    
+watching as he plugged it into his computer. As the data streamed across the screen, 
+
+I NW   0T   I HT  JST  TKN   A STP  TPR    INT  0   WRLT  OF 0   SBRKRMNLS
+I knew that I had just taken a step deeper into the world of the cybercriminals.
+```
+> Quote extracted from chatgpt: 'print an imaginary paragraph from a cyberpunk novel'
 
 ## The Original Metaphone Algorithm
 
