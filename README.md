@@ -62,7 +62,7 @@ yarn add metaphone-ts
 ### Deno
 
 ```ts
-import {metaphone} from 'https://deno.land/x/metaphone-ts/mod.ts'
+import {metaphone} from 'https://deno.land/x/metaphone/mod.ts'
 ```
 
 ## Example
